@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_database/firebase_database.dart'; // Import Firebase Realtime Database
-
+import 'package:firebase_database/firebase_database.dart'; 
 class WristbandScreen extends StatefulWidget {
   const WristbandScreen({super.key});
 
@@ -9,7 +8,7 @@ class WristbandScreen extends StatefulWidget {
 }
 
 class _WristbandScreenState extends State<WristbandScreen> {
-  // DatabaseReference to the 'wristBand/heartRate' node in your Firebase Realtime Database.
+  
   final DatabaseReference _heartRateRef =
       FirebaseDatabase.instance.ref('wristBand/heartRate');
 
@@ -45,7 +44,7 @@ class _WristbandScreenState extends State<WristbandScreen> {
               Expanded(
                 child: Center(
                   child: StreamBuilder<DatabaseEvent>(
-                    stream: _heartRateRef.onValue, // Listen to value changes at _heartRateRef
+                    stream: _heartRateRef.onValue, 
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
                         return const CircularProgressIndicator();
@@ -54,24 +53,24 @@ class _WristbandScreenState extends State<WristbandScreen> {
                       } else if (snapshot.hasData && snapshot.data!.snapshot.value != null) {
                         final int heartRate = snapshot.data!.snapshot.value as int;
 
-                        // Determine if SOS is needed
+                        
                         bool showSos = heartRate < 60 || heartRate > 100;
 
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            if (showSos) // Conditionally display SOS text
+                            if (showSos) 
                               Column(
                                 children: const [
                                   Text(
                                     'SOS',
                                     style: TextStyle(
-                                      fontSize: 48, // Big size for SOS
+                                      fontSize: 48, 
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.red, // Red color for alert
+                                      color: Colors.red, 
                                     ),
                                   ),
-                                  SizedBox(height: 10), // Space between SOS and heart rate
+                                  SizedBox(height: 10), 
                                 ],
                               ),
                             Text(
