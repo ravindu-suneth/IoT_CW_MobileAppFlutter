@@ -1,0 +1,87 @@
+{
+  "project_info": {
+    "project_number": "462662038246",
+    "firebase_url": "https://smart-care-hub-6519a-default-rtdb.firebaseio.com",
+    "project_id": "smart-care-hub-6519a",
+    "storage_bucket": "smart-care-hub-6519a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462662038246:android:51e6d3d00c83e4ac858127",
+        "android_client_info": {
+          "package_name": "com.example.iot_cw"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAsc95kAUkRcHXBqQY3C_RyTIT3LNUJTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462662038246:android:8a6e3b0a93b3815c858127",
+        "android_client_info": {
+          "package_name": "com.example.smart_care_hub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAsc95kAUkRcHXBqQY3C_RyTIT3LNUJTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462662038246:android:3d4d77a4f8a9e8fb858127",
+        "android_client_info": {
+          "package_name": "com.example.smartcareapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAsc95kAUkRcHXBqQY3C_RyTIT3LNUJTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462662038246:android:50ce6b51185aa4aa858127",
+        "android_client_info": {
+          "package_name": "com.example.smartcarehub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAsc95kAUkRcHXBqQY3C_RyTIT3LNUJTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
