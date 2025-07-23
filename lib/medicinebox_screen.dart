@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart'; // Import Cloud Firestore
+import 'package:cloud_firestore/cloud_firestore.dart'; 
 
 class MedicineBoxScreen extends StatefulWidget {
   const MedicineBoxScreen({super.key});
@@ -8,8 +8,7 @@ class MedicineBoxScreen extends StatefulWidget {
   State<MedicineBoxScreen> createState() => _MedicineBoxScreenState();
 }
 
-class _MedicineBoxScreenState extends State<MedicineBoxScreen> {
-  // Reference to the 'medicines' collection in Firestore.
+class _MedicineBoxScreenState extends State<MedicineBoxScreen> {  
   final CollectionReference _medicinesCollection =
       FirebaseFirestore.instance.collection('medicines');
 
@@ -69,9 +68,8 @@ class _MedicineBoxScreenState extends State<MedicineBoxScreen> {
                         final String nextDose = data['nextDose'] ?? 'N/A';
                         final String lastDose = data['lastDose'] ?? 'N/A';
 
-                        // --- UPDATED STATUS LOGIC (READ) ---
-                        // Firestore status: 1 (Pending), 0 (Taken)
-                        final int statusValue = data['status'] ?? 1; // Default to 1 (Pending) if not set
+                        
+                        final int statusValue = data['status'] ?? 1; 
                         final String statusText = statusValue == 1 ? 'Pending' : 'Taken';
 
                         return _buildDoseCard(
@@ -95,7 +93,7 @@ class _MedicineBoxScreenState extends State<MedicineBoxScreen> {
     );
   }
 
-  // Helper method to build a reusable dose card.
+  
   Widget _buildDoseCard(
     BuildContext context, {
     required String docId,
@@ -168,7 +166,7 @@ class _MedicineBoxScreenState extends State<MedicineBoxScreen> {
     );
   }
 
-  // Function to show the edit dialog.
+  
   void _showEditDialog(BuildContext context, String docId, Map<String, dynamic> currentData) {
     final TextEditingController medicineNameController =
         TextEditingController(text: currentData['medicineName'] ?? '');
@@ -177,9 +175,8 @@ class _MedicineBoxScreenState extends State<MedicineBoxScreen> {
     final TextEditingController lastDoseController =
         TextEditingController(text: currentData['lastDose'] ?? '');
 
-    // --- UPDATED STATUS LOGIC (INITIAL DIALOG VALUE) ---
-    // Firestore status: 1 (Pending), 0 (Taken)
-    int initialStatusValue = currentData['status'] ?? 1; // Default to 1 (Pending)
+    
+    int initialStatusValue = currentData['status'] ?? 1; 
     String selectedStatus = initialStatusValue == 1 ? 'Pending' : 'Taken';
 
     showDialog(
@@ -235,16 +232,14 @@ class _MedicineBoxScreenState extends State<MedicineBoxScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () async {
-                    // --- UPDATED STATUS LOGIC (WRITE) ---
-                    // App 'Pending' -> Firestore 1
-                    // App 'Taken' -> Firestore 0
+                    
                     final int newFirestoreStatus = selectedStatus == 'Pending' ? 1 : 0;
 
                     final updatedData = {
                       'medicineName': medicineNameController.text.trim(),
                       'nextDose': nextDoseController.text.trim(),
                       'lastDose': lastDoseController.text.trim(),
-                      'status': newFirestoreStatus, // Update with integer value
+                      'status': newFirestoreStatus, 
                     };
 
                     try {
